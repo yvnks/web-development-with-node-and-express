@@ -1,9 +1,13 @@
 import { createServer } from 'node:http';
+import { createReadStream } from 'node:fs';
 
-// Use named exports
-export const server = createServer((req, res) => {
-  res.writeHead(200, {
-    'Content-Type': 'text/html',
-  });
-  res.end(`<p>Hello world </p>`);
+const server = createServer();
+
+server.on('request', (req, res) => {
+  const src = createReadStream('./big-file.txt')
+  src.pipe(res)
+});
+
+server.listen(3000, () => {
+  console.log('Started server on port: 3000.\nPress Ctrl + C to cancel');
 });
