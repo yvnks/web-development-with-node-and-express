@@ -1,0 +1,4 @@
+import { spawn } from 'node:child_process';
+
+const child = spawn('pwd');
+console.log(child);
