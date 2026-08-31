@@ -12,6 +12,6 @@
   "type": "commonjs",
   "dependencies": {
     "util": "^0.12.5"
-    "nodemon": nodemon
+    
   }
 }
